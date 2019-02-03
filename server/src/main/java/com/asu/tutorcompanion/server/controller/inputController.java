@@ -98,6 +98,7 @@ public class inputController {
 		
 		oldInput.setTimeWithErrors(newInput.getTimeWithErrors());
 		oldInput.setTimeWorking(newInput.getTimeWorking());
+		oldInput.setHelpButtonClicked(newInput.getHelpButtonClicked());
 		
 		return oldInput;
 	}
