@@ -86,6 +86,10 @@ public class Input {
 	private float TimeWithErrors;
 	private float TimeUntilErrorFixed;
 	private float TimeSinceLastHint;
+	
+	@Min(0)
+	@Max(4)
+	private int feedback;
 
 	@Min(0)
 	@Max(1)
@@ -404,6 +408,14 @@ public class Input {
 
 	public void setHelpButtonClicked(int helpButtonClicked) {
 		HelpButtonClicked = helpButtonClicked;
+	}
+
+	public int getFeedback() {
+		return feedback;
+	}
+
+	public void setFeedback(int feedback) {
+		this.feedback = feedback;
 	}
 
 }
