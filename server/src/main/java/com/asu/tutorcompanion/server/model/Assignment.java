@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -21,13 +20,10 @@ public class Assignment {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@NotBlank
 	private String assignmentName;
 	
-	@NotBlank
 	private Date startDate;
 	
-	@NotBlank
 	private Date endDate;
 
 	public int getId() {

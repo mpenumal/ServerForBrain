@@ -25,6 +25,11 @@ public class InputService {
 	}
 	
 	/* Get an input by Id */
+	public Optional<Input> getById(long id) {
+		return inputRepository.findById(id);
+	}
+	
+	/* Get an input by StudentId */
 	public List<Input> getByStudentId(int studentId) {
 		return inputRepository.findByStudentId(studentId);
 	}

@@ -1,7 +1,7 @@
 package com.asu.tutorcompanion.server.controller;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,6 +39,20 @@ public class InputController {
 		}
 		return ResponseEntity.notFound().build();
 	}
+
+	/* Update Input with feedback */
+	@PutMapping("/inputs/{id}/{feedback}")
+	public void saveFeedback(
+			@PathVariable(value="id") int id,
+			@PathVariable(value="feedback") int feedback
+	) {
+		Optional<Input> oldInput = inputService.getById(id);	
+		if (oldInput.isPresent() && oldInput.get() != null) {
+			Input input = oldInput.get();
+			input.setFeedback(feedback);
+			inputService.save(input);
+		}
+	}
 	
 	/* GetAll inputs */
 	@GetMapping("/inputs")
@@ -45,7 +60,7 @@ public class InputController {
 		return inputService.getAll();
 	}
 	
-	/* Get an input by studentId */
+	/* Get Inputs by studentId */
 	@GetMapping("/inputs/{studentId}")
 	public ResponseEntity<List<Input>> getInputById(@PathVariable(value="studentId") int studentId) {
 		List<Input> inputList = inputService.getByStudentId(studentId);

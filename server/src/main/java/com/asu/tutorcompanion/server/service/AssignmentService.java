@@ -54,8 +54,10 @@ public class AssignmentService {
 	}
 	
 	public void deleteAssignment(String assignmentName) throws IOException {
-		final Assignment assignment= assignmentRepository.findByAssignmentName(assignmentName);
-		assignmentRepository.delete(assignment);
+		final Assignment assignment = assignmentRepository.findByAssignmentName(assignmentName);
+		if (assignment != null) {
+			assignmentRepository.delete(assignment);	
+		}
 		Files.deleteIfExists(Paths.get(UPLOAD_ROOT, assignmentName));		
 	}
 }

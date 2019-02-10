@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -24,13 +23,10 @@ public class Input {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@NotBlank
 	private int studentId;
 	
-	@NotBlank
 	private Action action;
 	
-	@NotBlank
 	private String assignmentName;
 	
 	private int NumberOfMethods;
@@ -77,7 +73,6 @@ public class Input {
 	private int CyclomaticComplexity;
 	private String ErrorType;
 	private int ErrorTotal;
-	private int ErrorsResolvedTotal;
 	private int NumberRunAttempts;
 	private int RunAttemptsSinceLastHint;
 	private Time SubmissionTimestamp;
@@ -104,7 +99,6 @@ public class Input {
 	private int AssignmentCompletedSuccessfully;
 
 	private int ErrorCountSinceLastHint;
-	private float TimeLastEncouragement;
 	private float TimeMostRecentHint;
 	private float TimeSecondMostRecentHint;
 
@@ -262,14 +256,6 @@ public class Input {
 		ErrorTotal = errorTotal;
 	}
 
-	public int getErrorsResolvedTotal() {
-		return ErrorsResolvedTotal;
-	}
-
-	public void setErrorsResolvedTotal(int errorsResolvedTotal) {
-		ErrorsResolvedTotal = errorsResolvedTotal;
-	}
-
 	public int getNumberRunAttempts() {
 		return NumberRunAttempts;
 	}
@@ -388,14 +374,6 @@ public class Input {
 
 	public void setErrorCountSinceLastHint(int errorCountSinceLastHint) {
 		ErrorCountSinceLastHint = errorCountSinceLastHint;
-	}
-
-	public float getTimeLastEncouragement() {
-		return TimeLastEncouragement;
-	}
-
-	public void setTimeLastEncouragement(float timeLastEncouragement) {
-		TimeLastEncouragement = timeLastEncouragement;
 	}
 
 	public float getTimeMostRecentHint() {

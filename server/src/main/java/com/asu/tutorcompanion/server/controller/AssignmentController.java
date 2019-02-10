@@ -50,7 +50,8 @@ public class AssignmentController {
 				.collect(Collectors.toList());
 		
 		if (assignmentMatches == null || assignmentMatches.isEmpty()) {
-			assignmentService.createAssignment(file, assignment);	
+			assignmentService.deleteAssignment(assignmentName);
+			assignmentService.createAssignment(file, assignment);
 		}
 	}
 	
@@ -65,18 +66,21 @@ public class AssignmentController {
 		List<Assignment> assignmentList = assignmentService.findAll();
 		List<Assignment> assignmentMatches = assignmentList.stream()
 				.filter(item -> 
-					((item.getStartDate().compareTo(currentDate) >= 0) &&
-					 (item.getEndDate().compareTo(currentDate) <= 0))
+					((item.getStartDate().compareTo(currentDate) <= 0) &&
+					 (item.getEndDate().compareTo(currentDate) >= 0))
 				)
 				.collect(Collectors.toList());
 		
-		String assignmentName = assignmentMatches.get(0).getAssignmentName();
-		Resource resource = assignmentService.findOneAssignment(assignmentName);
-		String contentType = "application/octet-stream";
-		return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(contentType))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-                .body(resource);
+		if (assignmentMatches != null && !assignmentMatches.isEmpty()) {
+			String assignmentName = assignmentMatches.get(0).getAssignmentName();
+			Resource resource = assignmentService.findOneAssignment(assignmentName);
+			String contentType = "application/octet-stream";
+			return ResponseEntity.ok()
+	                .contentType(MediaType.parseMediaType(contentType))
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+	                .body(resource);	
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 	private Assignment createAssignmentObj(
@@ -89,10 +93,10 @@ public class AssignmentController {
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH);
 		
-		Date startDate = sdf.parse(year + "/" + month + "/" + start + " 00:00:00");
+		Date startDate = sdf.parse(year + "/" + (month + 1) + "/" + start + " 00:00:00");
 		Date endDate = end >= start 
-						? sdf.parse(year + "/" + month + "/" + end + " 23:59:59")
-						: sdf.parse(year + "/" + (month + 1) + "/" + end + " 23:59:59");
+						? sdf.parse(year + "/" + (month + 1) + "/" + end + " 23:59:59")
+						: sdf.parse(year + "/" + (month + 2) + "/" + end + " 23:59:59");
 		
 		Assignment assignment = new  Assignment();
 		assignment.setAssignmentName(assignmentName);
