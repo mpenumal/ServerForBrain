@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
@@ -26,6 +27,10 @@ public class AssignmentService {
 	public AssignmentService(AssignmentRepository assignmentRepository, ResourceLoader resourceLoader) {
 		this.assignmentRepository = assignmentRepository;
 		this.resourceLoader = resourceLoader;
+	}
+	
+	public List<Assignment> findAll() {
+		return assignmentRepository.findAll();
 	}
 	
 	public Resource findOneAssignment(String assignmentName) {

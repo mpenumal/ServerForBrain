@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -41,7 +43,15 @@ public class AssignmentController {
 	) throws ParseException, IOException {
 		String assignmentName = file.getOriginalFilename();
 		Assignment assignment = createAssignmentObj(start, end, assignmentName);
-		assignmentService.createAssignment(file, assignment);
+		
+		List<Assignment> assignmentList = assignmentService.findAll();
+		List<Assignment> assignmentMatches = assignmentList.stream()
+				.filter(item -> (item.getEndDate().compareTo(assignment.getStartDate()) >= 0))
+				.collect(Collectors.toList());
+		
+		if (assignmentMatches == null || assignmentMatches.isEmpty()) {
+			assignmentService.createAssignment(file, assignment);	
+		}
 	}
 	
 	@DeleteMapping("/assignments/{assignmentName}")
@@ -49,8 +59,18 @@ public class AssignmentController {
 		assignmentService.deleteAssignment(assignmentName);
 	}
 	
-	@GetMapping("/assignments/{assignmentName}")
-	public ResponseEntity<Resource> getAssignment(@PathVariable(value="assignmentName") String assignmentName) {
+	@GetMapping("/assignments")
+	public ResponseEntity<Resource> getAssignment() {
+		Date currentDate = new Date();
+		List<Assignment> assignmentList = assignmentService.findAll();
+		List<Assignment> assignmentMatches = assignmentList.stream()
+				.filter(item -> 
+					((item.getStartDate().compareTo(currentDate) >= 0) &&
+					 (item.getEndDate().compareTo(currentDate) <= 0))
+				)
+				.collect(Collectors.toList());
+		
+		String assignmentName = assignmentMatches.get(0).getAssignmentName();
 		Resource resource = assignmentService.findOneAssignment(assignmentName);
 		String contentType = "application/octet-stream";
 		return ResponseEntity.ok()
