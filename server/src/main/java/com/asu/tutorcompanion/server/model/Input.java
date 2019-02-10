@@ -5,10 +5,13 @@ import java.sql.Time;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -18,7 +21,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Input {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@NotBlank
+	private int studentId;
+	
+	private Action action; 
 
 	private int NumberOfMethods;
 
@@ -91,12 +100,30 @@ public class Input {
 	private float TimeMostRecentHint;
 	private float TimeSecondMostRecentHint;
 
+	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+
+	public Action getAction() {
+		return action;
+	}
+
+	public void setAction(Action action) {
+		this.action = action;
 	}
 
 	public int getNumberOfMethods() {

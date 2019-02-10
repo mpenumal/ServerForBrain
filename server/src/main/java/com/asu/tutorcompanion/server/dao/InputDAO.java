@@ -25,8 +25,8 @@ public class InputDAO {
 	}
 	
 	/* Get an input by Id */
-	public Optional<Input> getById(int id) {
-		return inputRepository.findById(id);
+	public List<Input> getByStudentId(int studentId) {
+		return inputRepository.findByStudentId(studentId);
 	}
 	
 }

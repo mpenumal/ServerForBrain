@@ -24,18 +24,10 @@ public class inputController {
 	InputDAO inputDAO;
 	
 	/* Insert or Update an input by Id */
-	@PostMapping("/inputs/{id}")
-	public ResponseEntity<Input> updateInputById(@PathVariable(value="id") int id, @Valid @RequestBody Input newInput) {
-		Input input = new Input();
-		
-		Optional<Input> oldInput = inputDAO.getById(id);
-		if (oldInput.isPresent() && oldInput.get() != null) {
-			input = inputDAO.save(copy(newInput, oldInput.get()));
-		} else {
-			input = inputDAO.save(newInput);
-		}
-		
-		return ResponseEntity.ok().body(input);
+	@PostMapping("/inputs")
+	public ResponseEntity<Input> updateInputById(@Valid @RequestBody Input newInput) {
+		Input savedInput = inputDAO.save(newInput);
+		return ResponseEntity.ok().body(savedInput);
 	}
 	
 	/* GetAll inputs */
@@ -45,61 +37,12 @@ public class inputController {
 	}
 	
 	/* Get an input by Id */
-	@GetMapping("/inputs/{id}")
-	public ResponseEntity<Input> getInputById(@PathVariable(value="Id") int id) {
-		Optional<Input> input = inputDAO.getById(id);
-		
-		if (!input.isPresent() || input.get() == null) {
+	@GetMapping("/inputs/{studentId}")
+	public ResponseEntity<List<Input>> getInputById(@PathVariable(value="studentId") int studentId) {
+		List<Input> inputList = inputDAO.getByStudentId(studentId);
+		if (inputList == null || inputList.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok().body(input.get());
-	}
-	
-	private Input copy(Input newInput, Input oldInput) {
-		oldInput.setAssignmentCompleted(newInput.getAssignmentCompleted());
-		oldInput.setAssignmentCompletedSuccessfully(newInput.getAssignmentCompletedSuccessfully());
-		oldInput.setCyclomaticComplexity(newInput.getCyclomaticComplexity());
-		oldInput.setErrorCountSinceLastHint(newInput.getErrorCountSinceLastHint());
-		
-		oldInput.setErrorsResolvedTotal(newInput.getErrorsResolvedTotal());
-		oldInput.setErrorTotal(newInput.getErrorTotal());
-		oldInput.setErrorType(newInput.getErrorType());
-		oldInput.setKeywordComparatorFound(newInput.getKeywordComparatorFound());
-		
-		oldInput.setKeywordDoubleFound(newInput.getKeywordDoubleFound());
-		oldInput.setKeyWordFloatFound(newInput.getKeyWordFloatFound());
-		oldInput.setKeywordForWhileDoFound(newInput.getKeywordForWhileDoFound());
-		oldInput.setKeywordIfFound(newInput.getKeywordIfFound());
-		
-		oldInput.setKeywordMainFound(newInput.getKeywordMainFound());
-		oldInput.setKeywordNewFound(newInput.getKeywordNewFound());
-		oldInput.setKeywordReturnFound(newInput.getKeywordReturnFound());
-		oldInput.setLinesOfCodeChangedSinceLastRun(newInput.getLinesOfCodeChangedSinceLastRun());
-		
-		oldInput.setLinesOfCodeTotal(newInput.getLinesOfCodeTotal());
-		oldInput.setNumberOfCommentLines(newInput.getNumberOfCommentLines());
-		oldInput.setNumberOfMethods(newInput.getNumberOfMethods());
-		oldInput.setNumberRunAttempts(newInput.getNumberRunAttempts());
-		
-		oldInput.setRunAttemptsSinceLastHint(newInput.getRunAttemptsSinceLastHint());
-		oldInput.setSubmissionDate(newInput.getSubmissionDate());
-		oldInput.setSubmissionTimestamp(newInput.getSubmissionTimestamp());
-		oldInput.setTimeIdle(newInput.getTimeIdle());
-		
-		oldInput.setTimeLastEncouragement(newInput.getTimeLastEncouragement());
-		oldInput.setTimeMostRecentHint(newInput.getTimeMostRecentHint());
-		oldInput.setTimerValue(newInput.getTimerValue());
-		oldInput.setTimeSecondMostRecentHint(newInput.getTimeSecondMostRecentHint());
-		
-		oldInput.setTimeSinceLastHint(newInput.getTimeSinceLastHint());
-		oldInput.setTimeSinceLastRun(newInput.getTimeSinceLastRun());
-		oldInput.setTimeTotal(newInput.getTimeTotal());
-		oldInput.setTimeUntilErrorFixed(newInput.getTimeUntilErrorFixed());
-		
-		oldInput.setTimeWithErrors(newInput.getTimeWithErrors());
-		oldInput.setTimeWorking(newInput.getTimeWorking());
-		oldInput.setHelpButtonClicked(newInput.getHelpButtonClicked());
-		
-		return oldInput;
+		return ResponseEntity.ok().body(inputList);
 	}
 }
