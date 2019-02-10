@@ -41,15 +41,14 @@ public class InputController {
 	}
 
 	/* Update Input with feedback */
-	@PutMapping("/inputs/{id}/{feedback}")
-	public void saveFeedback(
-			@PathVariable(value="id") int id,
-			@PathVariable(value="feedback") int feedback
-	) {
-		Optional<Input> oldInput = inputService.getById(id);	
+	@PutMapping("/inputs/{id}")
+	public void saveMessageAndFeedback(@PathVariable(value="id") int id, @Valid @RequestBody Input newInput) {
+		Optional<Input> oldInput = inputService.getById(id);
 		if (oldInput.isPresent() && oldInput.get() != null) {
 			Input input = oldInput.get();
-			input.setFeedback(feedback);
+			input.setFeedback(newInput.getFeedback());
+			input.setMessageGiven(newInput.getMessageGiven());
+			input.setMessageCode(newInput.getMessageCode());
 			inputService.save(input);
 		}
 	}

@@ -5,5 +5,6 @@ public enum Action {
 	RUN,
 	DEBUG,
 	ERROR,
-	SUBMIT
+	SUBMIT,
+	HELP
 }
