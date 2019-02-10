@@ -1,8 +1,9 @@
 package com.asu.tutorcompanion.server.model;
 
 public enum Action {
-	PERIODIC,
+	TIMER,
 	RUN,
 	DEBUG,
-	ERRORS
+	ERROR,
+	SUBMIT
 }

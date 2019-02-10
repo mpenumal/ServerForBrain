@@ -1,4 +1,4 @@
-package com.asu.tutorcompanion.server.dao;
+package com.asu.tutorcompanion.server.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,7 @@ import com.asu.tutorcompanion.server.model.Input;
 import com.asu.tutorcompanion.server.repository.InputRepository;
 
 @Service
-public class InputDAO {
+public class InputService {
 	@Autowired
 	InputRepository inputRepository;
 	

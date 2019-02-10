@@ -1,6 +1,6 @@
 package com.asu.tutorcompanion.server.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Time;
 
 import javax.persistence.Entity;
@@ -22,13 +22,17 @@ public class Input {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	
 	@NotBlank
 	private int studentId;
 	
-	private Action action; 
-
+	@NotBlank
+	private Action action;
+	
+	@NotBlank
+	private String assignmentName;
+	
 	private int NumberOfMethods;
 
 	@Min(0)
@@ -106,11 +110,11 @@ public class Input {
 
 	
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -128,6 +132,14 @@ public class Input {
 
 	public void setAction(Action action) {
 		this.action = action;
+	}
+	
+	public String getAssignmentName() {
+		return assignmentName;
+	}
+
+	public void setAssignmentName(String assignmentName) {
+		this.assignmentName = assignmentName;
 	}
 
 	public int getNumberOfMethods() {
