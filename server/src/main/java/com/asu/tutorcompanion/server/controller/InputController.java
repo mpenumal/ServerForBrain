@@ -46,7 +46,7 @@ public class InputController {
 		Optional<Input> oldInput = inputService.getById(id);
 		if (oldInput.isPresent() && oldInput.get() != null) {
 			Input input = oldInput.get();
-			input.setFeedback(newInput.getFeedback());
+			input.setFeedbackSurvey(newInput.getFeedbackSurvey());
 			input.setMessageGiven(newInput.getMessageGiven());
 			input.setMessageCode(newInput.getMessageCode());
 			inputService.save(input);

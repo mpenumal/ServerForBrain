@@ -25,71 +25,72 @@ public class Input {
 	private int studentId;
 	private Action action;
 	private String assignmentName;
-	private int LinesOfCodeTotal;
+	private int linesOfCodeTotal;
 	
 	@Min(0)
 	@Max(1)
-	private int KeywordComparatorFound;
+	private int keywordComparatorFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeywordNewFound;
+	private int keywordNewFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeywordDoubleFound;
+	private int keywordDoubleFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeyWordFloatFound;
+	private int keyWordFloatFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeywordIfFound;
+	private int keywordIfFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeywordForWhileDoFound;
+	private int keywordForWhileDoFound;
 
 	@Min(0)
 	@Max(1)
-	private int KeywordReturnFound;
+	private int keywordReturnFound;
 	
-	private int NumberOfCommentLines;
-	private int LinesOfCodeChangedSinceLastRun;
-	private String ErrorType;
-	private int ErrorTotal;
-	private int NumberRunAttempts;
-	private int RunAttemptsSinceLastHint;
-	private Date SubmissionDateTime;
+	private int numberOfCommentLines;
+	private int linesOfCodeChangedSinceLastRun;
+	private String errorType;
+	private int errorTotal;
+	private int numberRunAttempts;
+	private int runAttemptsSinceLastHint;
+	private Date submissionDateTime;
 	
 	@Min(0)
 	@Max(1)
-	private int AssignmentCompletedSuccessfully;
+	private int assignmentCompletedSuccessfully;
 	
-	private int ErrorCountSinceLastHint;
+	private int errorCountSinceLastHint;
 	private String messageGiven;
 	private int messageCode;
 	
 	@Min(0)
 	@Max(4)
-	private int feedback;
+	private int feedbackSurvey;
 	
 	// In Review
 	// ---------------------------
-	private int CyclomaticComplexity;
-	private float TimerValue;
-	private float TimeSinceLastRun;
-	private float TimeIdle;
-	private float TimeTotal;
-	private float TimeWorking;
-	private float TimeWithErrors;
-	private float TimeUntilErrorFixed;
-	private float TimeSinceLastHint;
-	private float TimeMostRecentHint;
-	private float TimeSecondMostRecentHint;
+	private int cyclomaticComplexity;
+	private float timerValue;
+	private float timeSinceLastRun;
+	private float timeIdle;
+	private float timeTotal;
+	private float timeWorking;
+	private float timeWithErrors;
+	private float timeUntilErrorFixed;
+	private float timeSinceLastHint;
+	private float timeMostRecentHint;
+	private float timeSecondMostRecentHint;
 	
 	// ---------------------------
+	
 	
 	public long getId() {
 		return id;
@@ -116,106 +117,106 @@ public class Input {
 		this.assignmentName = assignmentName;
 	}
 	public int getLinesOfCodeTotal() {
-		return LinesOfCodeTotal;
+		return linesOfCodeTotal;
 	}
 	public void setLinesOfCodeTotal(int linesOfCodeTotal) {
-		LinesOfCodeTotal = linesOfCodeTotal;
+		this.linesOfCodeTotal = linesOfCodeTotal;
 	}
 	public int getKeywordComparatorFound() {
-		return KeywordComparatorFound;
+		return keywordComparatorFound;
 	}
 	public void setKeywordComparatorFound(int keywordComparatorFound) {
-		KeywordComparatorFound = keywordComparatorFound;
+		this.keywordComparatorFound = keywordComparatorFound;
 	}
 	public int getKeywordNewFound() {
-		return KeywordNewFound;
+		return keywordNewFound;
 	}
 	public void setKeywordNewFound(int keywordNewFound) {
-		KeywordNewFound = keywordNewFound;
+		this.keywordNewFound = keywordNewFound;
 	}
 	public int getKeywordDoubleFound() {
-		return KeywordDoubleFound;
+		return keywordDoubleFound;
 	}
 	public void setKeywordDoubleFound(int keywordDoubleFound) {
-		KeywordDoubleFound = keywordDoubleFound;
+		this.keywordDoubleFound = keywordDoubleFound;
 	}
 	public int getKeyWordFloatFound() {
-		return KeyWordFloatFound;
+		return keyWordFloatFound;
 	}
 	public void setKeyWordFloatFound(int keyWordFloatFound) {
-		KeyWordFloatFound = keyWordFloatFound;
+		this.keyWordFloatFound = keyWordFloatFound;
 	}
 	public int getKeywordIfFound() {
-		return KeywordIfFound;
+		return keywordIfFound;
 	}
 	public void setKeywordIfFound(int keywordIfFound) {
-		KeywordIfFound = keywordIfFound;
+		this.keywordIfFound = keywordIfFound;
 	}
 	public int getKeywordForWhileDoFound() {
-		return KeywordForWhileDoFound;
+		return keywordForWhileDoFound;
 	}
 	public void setKeywordForWhileDoFound(int keywordForWhileDoFound) {
-		KeywordForWhileDoFound = keywordForWhileDoFound;
+		this.keywordForWhileDoFound = keywordForWhileDoFound;
 	}
 	public int getKeywordReturnFound() {
-		return KeywordReturnFound;
+		return keywordReturnFound;
 	}
 	public void setKeywordReturnFound(int keywordReturnFound) {
-		KeywordReturnFound = keywordReturnFound;
+		this.keywordReturnFound = keywordReturnFound;
 	}
 	public int getNumberOfCommentLines() {
-		return NumberOfCommentLines;
+		return numberOfCommentLines;
 	}
 	public void setNumberOfCommentLines(int numberOfCommentLines) {
-		NumberOfCommentLines = numberOfCommentLines;
+		this.numberOfCommentLines = numberOfCommentLines;
 	}
 	public int getLinesOfCodeChangedSinceLastRun() {
-		return LinesOfCodeChangedSinceLastRun;
+		return linesOfCodeChangedSinceLastRun;
 	}
 	public void setLinesOfCodeChangedSinceLastRun(int linesOfCodeChangedSinceLastRun) {
-		LinesOfCodeChangedSinceLastRun = linesOfCodeChangedSinceLastRun;
+		this.linesOfCodeChangedSinceLastRun = linesOfCodeChangedSinceLastRun;
 	}
 	public String getErrorType() {
-		return ErrorType;
+		return errorType;
 	}
 	public void setErrorType(String errorType) {
-		ErrorType = errorType;
+		this.errorType = errorType;
 	}
 	public int getErrorTotal() {
-		return ErrorTotal;
+		return errorTotal;
 	}
 	public void setErrorTotal(int errorTotal) {
-		ErrorTotal = errorTotal;
+		this.errorTotal = errorTotal;
 	}
 	public int getNumberRunAttempts() {
-		return NumberRunAttempts;
+		return numberRunAttempts;
 	}
 	public void setNumberRunAttempts(int numberRunAttempts) {
-		NumberRunAttempts = numberRunAttempts;
+		this.numberRunAttempts = numberRunAttempts;
 	}
 	public int getRunAttemptsSinceLastHint() {
-		return RunAttemptsSinceLastHint;
+		return runAttemptsSinceLastHint;
 	}
 	public void setRunAttemptsSinceLastHint(int runAttemptsSinceLastHint) {
-		RunAttemptsSinceLastHint = runAttemptsSinceLastHint;
+		this.runAttemptsSinceLastHint = runAttemptsSinceLastHint;
 	}
 	public Date getSubmissionDateTime() {
-		return SubmissionDateTime;
+		return submissionDateTime;
 	}
 	public void setSubmissionDateTime(Date submissionDateTime) {
-		SubmissionDateTime = submissionDateTime;
+		this.submissionDateTime = submissionDateTime;
 	}
 	public int getAssignmentCompletedSuccessfully() {
-		return AssignmentCompletedSuccessfully;
+		return assignmentCompletedSuccessfully;
 	}
 	public void setAssignmentCompletedSuccessfully(int assignmentCompletedSuccessfully) {
-		AssignmentCompletedSuccessfully = assignmentCompletedSuccessfully;
+		this.assignmentCompletedSuccessfully = assignmentCompletedSuccessfully;
 	}
 	public int getErrorCountSinceLastHint() {
-		return ErrorCountSinceLastHint;
+		return errorCountSinceLastHint;
 	}
 	public void setErrorCountSinceLastHint(int errorCountSinceLastHint) {
-		ErrorCountSinceLastHint = errorCountSinceLastHint;
+		this.errorCountSinceLastHint = errorCountSinceLastHint;
 	}
 	public String getMessageGiven() {
 		return messageGiven;
@@ -229,77 +230,77 @@ public class Input {
 	public void setMessageCode(int messageCode) {
 		this.messageCode = messageCode;
 	}
-	public int getFeedback() {
-		return feedback;
+	public int getFeedbackSurvey() {
+		return feedbackSurvey;
 	}
-	public void setFeedback(int feedback) {
-		this.feedback = feedback;
+	public void setFeedbackSurvey(int feedbackSurvey) {
+		this.feedbackSurvey = feedbackSurvey;
 	}
 	public int getCyclomaticComplexity() {
-		return CyclomaticComplexity;
+		return cyclomaticComplexity;
 	}
 	public void setCyclomaticComplexity(int cyclomaticComplexity) {
-		CyclomaticComplexity = cyclomaticComplexity;
+		this.cyclomaticComplexity = cyclomaticComplexity;
 	}
 	public float getTimerValue() {
-		return TimerValue;
+		return timerValue;
 	}
 	public void setTimerValue(float timerValue) {
-		TimerValue = timerValue;
+		this.timerValue = timerValue;
 	}
 	public float getTimeSinceLastRun() {
-		return TimeSinceLastRun;
+		return timeSinceLastRun;
 	}
 	public void setTimeSinceLastRun(float timeSinceLastRun) {
-		TimeSinceLastRun = timeSinceLastRun;
+		this.timeSinceLastRun = timeSinceLastRun;
 	}
 	public float getTimeIdle() {
-		return TimeIdle;
+		return timeIdle;
 	}
 	public void setTimeIdle(float timeIdle) {
-		TimeIdle = timeIdle;
+		this.timeIdle = timeIdle;
 	}
 	public float getTimeTotal() {
-		return TimeTotal;
+		return timeTotal;
 	}
 	public void setTimeTotal(float timeTotal) {
-		TimeTotal = timeTotal;
+		this.timeTotal = timeTotal;
 	}
 	public float getTimeWorking() {
-		return TimeWorking;
+		return timeWorking;
 	}
 	public void setTimeWorking(float timeWorking) {
-		TimeWorking = timeWorking;
+		this.timeWorking = timeWorking;
 	}
 	public float getTimeWithErrors() {
-		return TimeWithErrors;
+		return timeWithErrors;
 	}
 	public void setTimeWithErrors(float timeWithErrors) {
-		TimeWithErrors = timeWithErrors;
+		this.timeWithErrors = timeWithErrors;
 	}
 	public float getTimeUntilErrorFixed() {
-		return TimeUntilErrorFixed;
+		return timeUntilErrorFixed;
 	}
 	public void setTimeUntilErrorFixed(float timeUntilErrorFixed) {
-		TimeUntilErrorFixed = timeUntilErrorFixed;
+		this.timeUntilErrorFixed = timeUntilErrorFixed;
 	}
 	public float getTimeSinceLastHint() {
-		return TimeSinceLastHint;
+		return timeSinceLastHint;
 	}
 	public void setTimeSinceLastHint(float timeSinceLastHint) {
-		TimeSinceLastHint = timeSinceLastHint;
+		this.timeSinceLastHint = timeSinceLastHint;
 	}
 	public float getTimeMostRecentHint() {
-		return TimeMostRecentHint;
+		return timeMostRecentHint;
 	}
 	public void setTimeMostRecentHint(float timeMostRecentHint) {
-		TimeMostRecentHint = timeMostRecentHint;
+		this.timeMostRecentHint = timeMostRecentHint;
 	}
 	public float getTimeSecondMostRecentHint() {
-		return TimeSecondMostRecentHint;
+		return timeSecondMostRecentHint;
 	}
 	public void setTimeSecondMostRecentHint(float timeSecondMostRecentHint) {
-		TimeSecondMostRecentHint = timeSecondMostRecentHint;
+		this.timeSecondMostRecentHint = timeSecondMostRecentHint;
 	}
 	
 }
