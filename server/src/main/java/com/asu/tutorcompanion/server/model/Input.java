@@ -1,7 +1,5 @@
 package com.asu.tutorcompanion.server.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -56,40 +54,20 @@ public class Input {
 	private int keywordReturnFound;
 	
 	private int numberOfCommentLines;
-	private int linesOfCodeChangedSinceLastRun;
 	private String errorType;
-	private int errorTotal;
-	private int numberRunAttempts;
-	private int runAttemptsSinceLastHint;
-	private Date submissionDateTime;
+	private String submissionDateTime;
 	
 	@Min(0)
 	@Max(1)
 	private int assignmentCompletedSuccessfully;
-	
-	private int errorCountSinceLastHint;
 	private String messageGiven;
 	private int messageCode;
 	
 	@Min(0)
 	@Max(4)
 	private int feedbackSurvey;
-	
-	// In Review
-	// ---------------------------
+
 	private int cyclomaticComplexity;
-	private float timerValue;
-	private float timeSinceLastRun;
-	private float timeIdle;
-	private float timeTotal;
-	private float timeWorking;
-	private float timeWithErrors;
-	private float timeUntilErrorFixed;
-	private float timeSinceLastHint;
-	private float timeMostRecentHint;
-	private float timeSecondMostRecentHint;
-	
-	// ---------------------------
 	
 	
 	public long getId() {
@@ -170,40 +148,16 @@ public class Input {
 	public void setNumberOfCommentLines(int numberOfCommentLines) {
 		this.numberOfCommentLines = numberOfCommentLines;
 	}
-	public int getLinesOfCodeChangedSinceLastRun() {
-		return linesOfCodeChangedSinceLastRun;
-	}
-	public void setLinesOfCodeChangedSinceLastRun(int linesOfCodeChangedSinceLastRun) {
-		this.linesOfCodeChangedSinceLastRun = linesOfCodeChangedSinceLastRun;
-	}
 	public String getErrorType() {
 		return errorType;
 	}
 	public void setErrorType(String errorType) {
 		this.errorType = errorType;
 	}
-	public int getErrorTotal() {
-		return errorTotal;
-	}
-	public void setErrorTotal(int errorTotal) {
-		this.errorTotal = errorTotal;
-	}
-	public int getNumberRunAttempts() {
-		return numberRunAttempts;
-	}
-	public void setNumberRunAttempts(int numberRunAttempts) {
-		this.numberRunAttempts = numberRunAttempts;
-	}
-	public int getRunAttemptsSinceLastHint() {
-		return runAttemptsSinceLastHint;
-	}
-	public void setRunAttemptsSinceLastHint(int runAttemptsSinceLastHint) {
-		this.runAttemptsSinceLastHint = runAttemptsSinceLastHint;
-	}
-	public Date getSubmissionDateTime() {
+	public String getSubmissionDateTime() {
 		return submissionDateTime;
 	}
-	public void setSubmissionDateTime(Date submissionDateTime) {
+	public void setSubmissionDateTime(String submissionDateTime) {
 		this.submissionDateTime = submissionDateTime;
 	}
 	public int getAssignmentCompletedSuccessfully() {
@@ -211,12 +165,6 @@ public class Input {
 	}
 	public void setAssignmentCompletedSuccessfully(int assignmentCompletedSuccessfully) {
 		this.assignmentCompletedSuccessfully = assignmentCompletedSuccessfully;
-	}
-	public int getErrorCountSinceLastHint() {
-		return errorCountSinceLastHint;
-	}
-	public void setErrorCountSinceLastHint(int errorCountSinceLastHint) {
-		this.errorCountSinceLastHint = errorCountSinceLastHint;
 	}
 	public String getMessageGiven() {
 		return messageGiven;
@@ -241,66 +189,6 @@ public class Input {
 	}
 	public void setCyclomaticComplexity(int cyclomaticComplexity) {
 		this.cyclomaticComplexity = cyclomaticComplexity;
-	}
-	public float getTimerValue() {
-		return timerValue;
-	}
-	public void setTimerValue(float timerValue) {
-		this.timerValue = timerValue;
-	}
-	public float getTimeSinceLastRun() {
-		return timeSinceLastRun;
-	}
-	public void setTimeSinceLastRun(float timeSinceLastRun) {
-		this.timeSinceLastRun = timeSinceLastRun;
-	}
-	public float getTimeIdle() {
-		return timeIdle;
-	}
-	public void setTimeIdle(float timeIdle) {
-		this.timeIdle = timeIdle;
-	}
-	public float getTimeTotal() {
-		return timeTotal;
-	}
-	public void setTimeTotal(float timeTotal) {
-		this.timeTotal = timeTotal;
-	}
-	public float getTimeWorking() {
-		return timeWorking;
-	}
-	public void setTimeWorking(float timeWorking) {
-		this.timeWorking = timeWorking;
-	}
-	public float getTimeWithErrors() {
-		return timeWithErrors;
-	}
-	public void setTimeWithErrors(float timeWithErrors) {
-		this.timeWithErrors = timeWithErrors;
-	}
-	public float getTimeUntilErrorFixed() {
-		return timeUntilErrorFixed;
-	}
-	public void setTimeUntilErrorFixed(float timeUntilErrorFixed) {
-		this.timeUntilErrorFixed = timeUntilErrorFixed;
-	}
-	public float getTimeSinceLastHint() {
-		return timeSinceLastHint;
-	}
-	public void setTimeSinceLastHint(float timeSinceLastHint) {
-		this.timeSinceLastHint = timeSinceLastHint;
-	}
-	public float getTimeMostRecentHint() {
-		return timeMostRecentHint;
-	}
-	public void setTimeMostRecentHint(float timeMostRecentHint) {
-		this.timeMostRecentHint = timeMostRecentHint;
-	}
-	public float getTimeSecondMostRecentHint() {
-		return timeSecondMostRecentHint;
-	}
-	public void setTimeSecondMostRecentHint(float timeSecondMostRecentHint) {
-		this.timeSecondMostRecentHint = timeSecondMostRecentHint;
 	}
 	
 }

@@ -31,11 +31,11 @@ public class InputController {
 	
 	/* Insert an input */
 	@PostMapping("/inputs")
-	public ResponseEntity<Input> saveInput(@Valid @RequestBody Input newInput) {
+	public ResponseEntity<Long> saveInput(@Valid @RequestBody Input newInput) {
 		Resource resource = assignmentService.findOneAssignment(newInput.getAssignmentName());
 		if (resource != null) {
 			Input savedInput = inputService.save(newInput);
-			return ResponseEntity.ok().body(savedInput);
+			return ResponseEntity.ok().body(savedInput.getId());
 		}
 		return ResponseEntity.notFound().build();
 	}
