@@ -21,6 +21,9 @@ public class Input {
 	private long id;
 	
 	private int studentId;
+	
+	private String courseName;
+	
 	private Action action;
 	private String assignmentName;
 	private int linesOfCodeTotal;
@@ -189,6 +192,12 @@ public class Input {
 	}
 	public void setCyclomaticComplexity(int cyclomaticComplexity) {
 		this.cyclomaticComplexity = cyclomaticComplexity;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 	
 }
